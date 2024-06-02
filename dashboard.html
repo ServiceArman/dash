@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="d-flex justify-content-between p-3 bg-dark text-white">
+        <h1>Demo Site</h1>
+        <div>
+            <span id="userName"></span>
+            <a href="profile.html" class="btn btn-outline-light">Profile</a>
+        </div>
+    </header>
+    <div class="container mt-4">
+        <h2>Order History</h2>
+        <div id="ordersList" class="row"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
