@@ -39,6 +39,48 @@
             }
         ]
     },
+
+    {
+        "user_id": "1",
+        "order_id": "123455",
+        "domain_info": [
+            {
+                "domain_name": "example1.com",
+                "registrar": "GoDaddy",
+                "registration_date": "2020-01-01",
+                "expiry_date": "2025-01-01",
+                "owner": {
+                    "name": "John Doe",
+                    "contact_email": "johndoe@example.com"
+                },
+                "name_servers": [
+                    "ns1.example.com",
+                    "ns2.example.com"
+                ],
+                "control_panel_access": {
+                    "url": "https://wordpress.com/login",
+                    "username": "arman",
+                    "password": "1234"
+                }
+            }
+        ],
+        "email": "user1@gmail.com",
+        "order_history": [
+            {
+                "order_id": "123455",
+                "order_date": "2024-06-01T14:30:00Z",
+                "total_amount": 141.97,
+                "order_status": "Shipped"
+            },
+            {
+                "order_id": "654321",
+                "order_date": "2023-11-20T11:15:00Z",
+                "total_amount": 75.49,
+                "order_status": "Delivered"
+            }
+        ]
+    },
+    
     {
         "user_id": "2",
         "order_id": "654321",
