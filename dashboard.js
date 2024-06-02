@@ -20,14 +20,16 @@ $(document).ready(function() {
         }
 
         userOrders.forEach(order => {
-            order.domain_info.forEach(domain => {
+            order.order_history.forEach(history => {
                 $('#ordersList').append(`
                     <div class="col-md-6 mb-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">${domain.domain_name} <span class="float-right" style="cursor:pointer;" onclick="viewOrderDetails('${domain.domain_name}')">...</span></h5>
-                                <p class="card-text">Expiry Date: ${domain.expiry_date}</p>
-                                <p class="card-text">Status: ${order.order_history[0].order_status}</p>
+                                <h5 class="card-title">${order.order_id}</h5>
+                                <p class="card-text">Order Date: ${history.order_date}</p>
+                                <p class="card-text">Total Amount: ${history.total_amount}</p>
+                                <p class="card-text">Status: ${history.order_status}</p>
+                                <p class="card-text">Domain Name: ${order.domain_info[0].domain_name}</p>
                             </div>
                         </div>
                     </div>
@@ -50,7 +52,7 @@ $(document).ready(function() {
     checkLoginStatus();
 });
 
-function viewOrderDetails(domainName) {
-    localStorage.setItem('selectedDomain', domainName);
+function viewOrderDetails(orderId) {
+    localStorage.setItem('selectedOrder', orderId);
     window.location.href = 'orderdetails.html';
-    }
+}
