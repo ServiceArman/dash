@@ -12,25 +12,23 @@ $(document).ready(function() {
     }
 
     fetchOrderData().done(function(orders) {
-        const userOrders = orders.filter(order => order.email === user.email);
+        const userOrders = orders.filter(order => order.user_id === user.user_id);
 
         if (userOrders.length === 0) {
-            $('#ordersList').append('<p>No orders found.</p>');
+            $('#orderHistory').append('<p>No orders found.</p>');
             return;
         }
 
         userOrders.forEach(order => {
             order.order_history.forEach(history => {
-                $('#ordersList').append(`
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">${order.order_id}</h5>
-                                <p class="card-text">Order Date: ${history.order_date}</p>
-                                <p class="card-text">Total Amount: ${history.total_amount}</p>
-                                <p class="card-text">Status: ${history.order_status}</p>
-                                <p class="card-text">Domain Name: ${order.domain_info[0].domain_name}</p>
-                            </div>
+                const domainInfo = order.domain_info[0]; // Assuming there's only one domain per order
+                $('#orderHistory').append(`
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">${domainInfo.domain_name}</h5>
+                            <p class="card-text">Expiry Date: ${domainInfo.expiry_date}</p>
+                            <p class="card-text">Status: ${history.order_status}</p>
+                            <button class="btn btn-primary" onclick="viewOrderDetails('${order.order_id}')">View Details</button>
                         </div>
                     </div>
                 `);
@@ -39,17 +37,6 @@ $(document).ready(function() {
     }).fail(function() {
         alert('Error fetching order data');
     });
-
-    function checkLoginStatus() {
-        const loginTime = localStorage.getItem('loginTime');
-        if (loginTime && Date.now() - loginTime > 86400000) { // 24 hours in milliseconds
-            localStorage.removeItem('loggedInUser');
-            localStorage.removeItem('loginTime');
-            window.location.href = 'login.html';
-        }
-    }
-
-    checkLoginStatus();
 });
 
 function viewOrderDetails(orderId) {
