@@ -24,11 +24,17 @@ $(document).ready(function() {
                 const domainInfo = order.domain_info[0]; // Assuming there's only one domain per order
                 $('#orderHistory').append(`
                     <div class="card mb-4">
+                        <div class="card-header">${domainInfo.domain_name}</div>
                         <div class="card-body">
-                            <h5 class="card-title">${domainInfo.domain_name}</h5>
-                            <p class="card-text">Expiry Date: ${domainInfo.expiry_date}</p>
-                            <p class="card-text">Status: ${history.order_status}</p>
-                            <button class="btn btn-primary" onclick="viewOrderDetails('${order.order_id}')">View Details</button>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Expiry Date: ${domainInfo.expiry_date}</p>
+                                    <p>Status: ${history.order_status}</p>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button class="btn btn-primary" onclick="viewOrderDetails('${order.order_id}')">View Details</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 `);
