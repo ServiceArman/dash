@@ -1,0 +1,23 @@
+[
+    {
+        "user_id": "78910",
+        "name": "John Doe",
+        "phone": "+1234567890",
+        "email": "user1@gmail.com",
+        "password": "1234"
+    },
+    {
+        "user_id": "12345",
+        "name": "Jane Smith",
+        "phone": "+0987654321",
+        "email": "user2@gmail.com",
+        "password": "abcd"
+    },
+    {
+        "user_id": "54321",
+        "name": "Sam Wilson",
+        "phone": "+1122334455",
+        "email": "user3@gmail.com",
+        "password": "5678"
+    }
+]
